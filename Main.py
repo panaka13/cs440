@@ -146,7 +146,7 @@ for z0 in range(15810, 15830):
 	print(z0, end=' ')
 	print(Stat.sumOfSquareError(wholeTemp, list(map(f, wholeIndex))))
 # 	(index, temp) = Data.getMin(year, 1, 1, year+1, 1, 1, 5)
-(wholeIndex, wholeTemp) = Data.getMin(year, 1, 1, year+1, 1, 1)
+(wholeIndex, wholeTemp) = Data.getMinRandom(year, 1, 1, year+1, 1, 1, 270)
 (interval, func) = Piecewise.QuadraticSpline(index, temp)
 f = lambda x: Piecewise.cal(interval, func, x)
 print(Stat.sumOfSquareError(wholeTemp, list(map(f, wholeIndex))))

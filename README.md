@@ -1,15 +1,17 @@
-Dataset: from [www.ncei.noaa.gov](www.ncei.noaa.gov)<br/ >
-Order ID: [1520589](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520589&email=lionboy589@gmail.com) <br/ >
+Dataset: from [www.ncei.noaa.gov](www.ncei.noaa.gov)<br/>
+Order ID: [1520589](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520589&email=lionboy589@gmail.com) <br/>
 Email: lionboy589@gmail.com
 
-Order ID: [1520617](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520617&email=lionboy589@gmail.com) <br/ >
+Order ID: [1520617](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520617&email=lionboy589@gmail.com) <br/>
 Email: lionboy589@gmail.com
 
-Order ID: [1520669](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520669&email=lionboy589@gmail.com) <br/ >
+Order ID: [1520669](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520669&email=lionboy589@gmail.com) <br/>
 Email: lionboy589@gmail.com
 
-Order ID: [1520741](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520741&email=lionboy589@gmail.com) <br/ >
+Order ID: [1520741](https://www.ncdc.noaa.gov/cdo-web/orders?id=1520741&email=lionboy589@gmail.com) <br/>
 Email: lionboy589@gmail.com
+
+Link: [github](https://github.com/panaka13/cs440)
 
 Requirement: 
 * Python 3.4 or newer
@@ -35,7 +37,7 @@ Comment: To get data
 	(index, interval) = Data.getMin(startYear, startMonth, startDay, endYear, endMonth, endDate, k)
 ```
 To run interpolation
-```
+```python
 # best fit polynomial
 func = Projection.degreePolynomial(index, temp, degree)
 f = lambda x: numpy.polyval(func)
@@ -51,7 +53,7 @@ f = lambda x: piecewise.cal(interval, func, x)
 ```
 
 To visualize the interpolation:
-```
+```python
 (wholeIndex, wholeTemp) = Data.getMin(year, 1, 1, year+1, 1, 1)
 Projection.graphProjection(wholeIndex, wholeTemp, f)
 ```

@@ -27,14 +27,23 @@ Important file:
 * LinearSystem.py: solve linear system of equation
 * 1520741.csv: Raw data file
 
-Comment: To get data
+Setup: In python3 interactive shell
+```
+import Data
+import Projection
+import Piecewise
+import LinearSystem
+import StatFunction
+```
+
+To get data
 ```python
 # get whole data
-	(index, interval) = Data.getMin(startYear, startMonth, startDay, endYear, endMonth, endDate)
+	(index, temp) = Data.getMin(startYear, startMonth, startDay, endYear, endMonth, endDate)
 # get random data
-	(index, interval) = Data.getMinRandom(startYear, startMonth, startDay, endYear, endMonth, endDate, numberOfPoint)
+	(index, temp) = Data.getMinRandom(startYear, startMonth, startDay, endYear, endMonth, endDate, numberOfPoint)
 # get every k-th point
-	(index, interval) = Data.getMin(startYear, startMonth, startDay, endYear, endMonth, endDate, k)
+	(index, temp) = Data.getMin(startYear, startMonth, startDay, endYear, endMonth, endDate, k)
 ```
 To run interpolation
 ```python
@@ -46,7 +55,7 @@ f = lambda x: numpy.polyval(func)
 f = lambda x: piecewise.cal(interval, func, x)
 # quadratic spline
 (func, interval) = Piecewise.QuadraticSpline(index, temp, degree)
-f = lambda x: piecewise.cal(interval, func, x)
+f = lambda x: Piecewise.cal(interval, func, x)
 # cubic spline
 (func, interval) = Piecewise.CubicSpline1(index, temp, degree)
 f = lambda x: piecewise.cal(interval, func, x)
@@ -56,4 +65,13 @@ To visualize the interpolation:
 ```python
 (wholeIndex, wholeTemp) = Data.getMin(year, 1, 1, year+1, 1, 1)
 Projection.graphProjection(wholeIndex, wholeTemp, f)
+```
+
+Other useful function 
+```
+# To predict temperature on a date
+# date = number of days from the startYear-startMonth-startDay
+f(date)
+# To calculate the mean of sum square error
+Stat.sumOfSquareError(wholeTemp, list(map(f, wholeIndex)))
 ```
